@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zee Clothing & Fasion artist</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --muted: #7a7a85;
+      --accent: #1f6feb;
+      --accent-2: #111827;
+      --card: #fbfbfd;
+      --radius: 10px;
+      --shadow: 0 6px 18px rgba(11, 22, 40, 0.06);
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    * { box-sizing: border-box; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--accent-2); scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width:100%; display:block; }
+    .container { width: calc(100% - 2.2rem); max-width: 1100px; margin: 0 auto; padding: 2rem 0; }
+
+    .site-header { border-bottom: 1px solid #eee; background: #fff; position: sticky; top:0; z-index:50; }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.6rem 0; }
+    .brand { font-weight:700; font-size:1.05rem; color:var(--accent-2); }
+    .nav ul { list-style:none; display:flex; gap:1rem; align-items:center; margin:0; padding:0; }
+    .nav a { padding:0.5rem 0.6rem; border-radius:8px; color:var(--muted); font-weight:600; font-size:0.95rem; }
+    .nav a:hover { color:var(--accent); background:rgba(31,111,235,0.06); }
+
+    .menu-toggle { display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; background:none; border:0; padding:6px; cursor:pointer; }
+    .menu-toggle .hamb { width:20px; height:2px; background:var(--accent-2); display:block; border-radius:2px; }
+    @media (min-width:900px) { .menu-toggle { display:none; } }
+    .nav { position: absolute; right:1.1rem; top:64px; background:#fff; border-radius:8px; box-shadow:var(--shadow); padding:0.6rem; display:none; }
+    .nav.open { display:block; }
+    .nav ul { flex-direction:column; }
+
+    .hero { padding: 2.4rem 0 3rem; background: linear-gradient(180deg, rgba(31,111,235,0.04), transparent 60%); }
+    .hero-grid { display:grid; gap:1rem; grid-template-columns: 1fr; align-items:center; }
+    .hero-text h1 { font-size:1.6rem; margin:0 0 .6rem; line-height:1.05; }
+    .hero-text p { color:var(--muted); margin:0 0 1rem; }
+    .hero-cta { display:flex; gap:.6rem; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:.6rem; padding: .6rem 1rem; border-radius:8px; font-weight:600; cursor:pointer; border:0; }
+    .btn.primary { background:var(--accent); color:#fff; }
+    .btn.ghost { background:transparent; border:1px solid rgba(17,24,39,0.06); color:var(--accent-2); }
+
+    .section { padding:2rem 0; }
+    .section.alt { background:#fafafa; }
+    .cards, .pricing-grid, .gallery-grid { display:grid; gap:1rem; grid-template-columns: 1fr; }
+
+    .card, .price-card, .shop-card {
+      background:var(--card);
+      padding:1rem;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .shop-card img { border-radius:8px; height:200px; object-fit:cover; margin-bottom:0.6rem; }
+    .shop-card h3 { margin:0.4rem 0; }
+    .shop-card p { color:var(--muted); }
+    .shop-card button { margin-top:0.6rem; }
+
+    .contact-grid { display:grid; gap:1rem; grid-template-columns: 1fr; }
+    .contact-form { display:flex; flex-direction:column; gap:0.6rem; margin-top:0.5rem; }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      padding:0.6rem 0.75rem; border-radius:8px; border:1px solid #e7e7ec; background:#fff; outline:none;
+    }
+
+    .thank-you {
+      display:none;
+      text-align:center;
+      background:#e6f2ff;
+      padding:1.5rem;
+      border-radius:8px;
+      margin-top:1rem;
+      box-shadow:var(--shadow);
+      color:#333;
+    }
+
+    @media(min-width:700px){
+      .hero-grid { grid-template-columns: 1fr 420px; gap:2rem; }
+      .pricing-grid { grid-template-columns: repeat(3,1fr); }
+      .gallery-grid { grid-template-columns: repeat(4,1fr); }
+      .cards, .shop-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-grid { grid-template-columns: 1fr 420px; }
+      .nav { display:block; position:static; background:transparent; box-shadow:none; padding:0; }
+      .nav ul { flex-direction:row; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Zee Clothing & Fashion Designer </a>
+      <button class="menu-toggle" id="menuToggle">
+        <span class="hamb"></span><span class="hamb"></span><span class="hamb"></span>
+      </button>
+      <nav class="nav" id="siteNav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Handcrafted Clothing • Expert Sewing</h1>
+        <p>Custom fits, repairs, and made-to-order garments — tailored with care for your style and comfort.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#shop">Shop Now</a>
+          <a class="btn ghost" href="#contact">Book Appointment</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1618354801082-d081b3de71d6" alt="Tailor at work">
+      </div>
+    </div>
+  </section>
+
+  <!-- 🛍 SHOP SECTION -->
+  <section id="shop" class="section alt">
+    <div class="container">
+      <h2 class="center">Shop Featured Designs</h2>
+      <div class="cards shop-grid">
+        <div class="shop-card">
+          <img src="https://images.unsplash.com/photo-1602810316533-6ec2b20e8f6f" alt="Ankara Dress">
+          <h3>Ankara Dress</h3>
+          <p>Elegant, handmade African print dress for all occasions.</p>
+          <button class="btn primary" onclick="window.location.href='https://paystack.com'">Buy Now</button>
+        </div>
+        <div class="shop-card">
+          <img src="https://images.unsplash.com/photo-1618354691460-8a0f1ec276cc" alt="Casual look">
+          <h3>Casual looks</h3
+          <button class="btn primary" onclick="window.location.href='https://paystack.com'">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📅 BOOKING SECTION -->
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div>
+        <h2>Book Appointment</h2>
+        <p>Schedule a fitting or consultation with our tailor below.</p>
+        <ul>
+          <li><strong>Phone:</strong> +234 810 357 6596</li>
+          <li><strong>Email:</strong> hello@zeeclothing.com</li>
+          <li><strong>Location:</strong> sokoto</li>
+        </ul>
+      </div>
+
+      <form class="contact-form" name="appointment" method="POST" data-netlify="true" id="bookingForm">
+        <input type="hidden" name="form-name" value="appointment">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" placeholder="Your name" required>
+        </label>
+        <label>
+          <span>Phone / WhatsApp</span>
+          <input type="tel" name="phone" placeholder="+234 810 357 6596" required>
+        </label>
+        <label>
+          <span>Preferred Date</span>
+          <input type="date" name="date" required>
+        </label>
+        <label>
+          <span>Service Type</span>
+          <select name="service">
+            <option>Custom Sewing</option>
+            <option>Alterations</option>
+            <option>Fabric Design</option>
+          </select>
+        </label>
+        <label>
+          <span>Additional Details</span>
+          <textarea name="message" rows="4" placeholder="Tell us about your project"></textarea>
+        </label>
+        <button class="btn primary" type="submit">Book Now</button>
+      </form>
+
+      <div class="thank-you" id="thankYou">
+        <h3>✅ Thank You!</h3>
+        <p>Your appointment has been received.  
+        We’ll reach out shortly!</p>
+        <p>Redirecting to homepage in <span id="countdown">5</span> seconds...</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container center small muted">
+      © <span id="year"></span> Zee Clothing & Fashion designer — All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNav = document.getElementById('siteNav');
+    menuToggle.addEventListener('click', () => {
+      siteNav.classList.toggle('open');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Handle Thank You message and redirect
+    const form = document.getElementById('bookingForm');
+    const thankYou = document.getElementById('thankYou');
+    const countdownEl = document.getElementById('countdown');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('/', { method: 'POST', body: data })
+        .then(() => {
+          form.style.display = 'none';
+          thankYou.style.display = 'block';
+
+          let countdown = 5;
+          const timer = setInterval(() => {
+            countdown--;
+            countdownEl.textContent = countdown;
+            if (countdown === 0) {
+              clearInterval(timer);
+              window.location.href = '#';
+            }
+          }, 1000);
+        })
+        .catch(() => alert('Error submitting form.'));
+    });
+  </script>
+</body>
+</html>
